@@ -1,0 +1,55 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+@use "../abstracts/placeholders";
+
+.tabs {
+  display: none;
+  @extend %sectionSpace;
+
+  @include breakpoints.respond-to('tablet') {
+    display: block;
+
+
+    &__buttons {
+      @include flex-box(flex-start, center);
+    }
+
+    &__button {
+      padding: 11px 30px;
+      background: $color-gray-bg;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      cursor: pointer;
+
+      h3, span {
+        margin-bottom: 0;
+        font-size: $font-size--general;
+      }
+
+      &[data-active="true"] {
+        background-color: variables.$bg-primary;
+
+        h3, span {
+          color: $color-white;
+        }
+      }
+
+    }
+
+    &__contents {
+      background: $color-gray-bg;
+      border-radius: $border-radius;
+    }
+
+    &__content {
+      padding: 22px 26px;
+      font-size: $font-size--general;
+      font-weight: $fw-lighter;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+}

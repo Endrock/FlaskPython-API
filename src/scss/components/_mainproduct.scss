@@ -1,0 +1,219 @@
+@import "../abstracts/variables";
+@import "../abstracts/placeholders";
+@import "../abstracts/mixins";
+@import "../abstracts/breakpoints";
+
+#shopify-section-product-modal.main-product {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.main-product {
+  @include flex-box (center, flex-start, column);
+  box-sizing: border-box;
+  margin-top: 15px;
+  @include respond-to("tablet") {
+    margin-top: 34px;
+  }
+  @extend %sectionSpace;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include respond-to('tablet') {
+    max-height: 100vh;
+    flex-direction: row;
+    overflow-y: scroll;
+  }
+
+  &__price {
+    margin-bottom: 12px;
+    .compare,
+    .regular {
+      font-size: $font-size--h4 !important;
+    }
+
+    .regular {
+      font-weight: $fw-medium !important;
+    }
+
+  }
+
+  &__slider {
+    position: relative;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 12px;
+
+    @include respond-to('tablet') {
+      position: sticky;
+      top: 0;
+      width: 50%;
+    }
+
+    &-tags {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 12px 11px;
+
+      @include respond-to('tablet') {
+        padding: 16px 11px;
+      }
+    }
+
+    &-tag {
+      padding: 4px 10px;
+      margin: 0;
+      background-color: $color-base-secondary-alpha;
+      border-radius: 100px;
+      color: $color-light-blue;
+      font-size: $font-size--small;
+      text-align: center;
+    }
+
+    &-discount {
+      padding: 4px 10px;
+      background-color: $color-base-primary-alpha;
+      border-radius: 100px;
+      color: $bg-primary;
+      font-size: $font-size--small;
+      text-align: center;
+    }
+
+    &-thumbs {
+      display: none;
+
+      @include respond-to('tablet') {
+        display: block;
+
+        .image-elements__image-thumbs {
+          max-width: 108px;
+          margin-right: 14px;
+          border-radius: 5px;
+          filter: drop-shadow($small-shadow $shadow-black-025);
+        }
+      }
+    }
+
+    &-principal {
+      position: relative;
+      z-index: 0;
+      margin-bottom: 0;
+      border-radius: 5px;
+      filter: drop-shadow($small-shadow $shadow-black-025);
+
+      @include respond-to('tablet') {
+        margin-bottom: 19px;
+      }
+
+      .swiper-button {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        width: 39.27px;
+        height: 39.27px;
+        background-color: $color-brand-1;
+        border-radius: 50%;
+        transform: translateY(0);
+
+        @include respond-to('tablet') {
+          display: none;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        &-next {
+          right: 5px;
+        }
+
+        &-prev {
+          left: 5px;
+        }
+
+        svg {
+          width: 13px;
+          height: 13px;
+        }
+
+        &-disabled {
+          border: 1px solid $color-brand-2;
+          background: $color-white;
+          opacity: 1 !important;
+          svg {
+            path {
+              fill: $color-brand-2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__detail {
+    width: 100%;
+
+    @include respond-to('tablet') {
+      width: 50%;
+      margin-left: 45px;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      color: $color-text-dark;
+
+      @include respond-to('tablet') {
+        font-size: $font-size--h2-desktop;
+      }
+    }
+  }
+
+  &__description {
+    display: none;
+    margin-bottom: 27px;
+    font-size: $font-size--general;
+    text-align: justify;
+
+    .inline {
+      display: inline;
+    }
+
+    .more {
+      display: none;
+
+      &.show-more {
+        display: block;
+      }
+    }
+
+    .dots {
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-brand-1;
+      }
+    }
+  }
+}
+
+.vertical-swipper {
+  display: flex;
+  flex-direction: row-reverse;
+
+  &-principal {
+    flex: 2;
+  }
+
+  &-thumbs {
+    height: 100%;
+    max-height: 600px;
+  }
+}

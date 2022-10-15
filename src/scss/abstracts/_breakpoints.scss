@@ -1,0 +1,51 @@
+$breakpoints: (
+  'phone-xs': ( min-width:  280px ), // Phone Extra Small
+  'phone-s': ( min-width:  320px ), // Phone Small
+  'phone':  ( min-width: 375px ),  // Phone
+  'phone-l':  ( min-width: 425px ), // Phone Large
+  'phone-xl':  ( min-width: 481px ),  //Phone Extra Large
+  'tablet':  ( min-width: 768px ),  // Tablet
+  'max-tablet':  ( max-width: 768px ),  // Max Width Tablet
+  'tablet-m':  ( min-width: 992px ),  // Tablet Medium
+  'tablet-l':  ( min-width: 1024px ),  // Tablet Large
+  'desktop-s':  ( min-width: 1200px ), // Desktop Small
+  'desktop-m':  ( min-width: 1440px ), // Desktop Medium
+  'desktop-l':  ( min-width: 1536px ), // Desktop Large
+  'desktop-xl':  ( min-width: 1740px ), // Desktop Extra Large
+  'desktop-xxl':  ( min-width: 1900px ) // Desktop Extra Extra Large
+) !default;
+
+@mixin respond-to($breakpoint) {
+
+  /* If the key exists in the map */
+  @if map-has-key($breakpoints, $breakpoint) {
+    /* Prints a media query based on the value */
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  /* If the key doesn't exist in the map */
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin respond-to-custom($media) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+@mixin respond-to-custom-max($media) {
+  @media (max-width: $media) {
+    @content;
+  }
+}
+
+@mixin respond-to-min-max($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}

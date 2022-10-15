@@ -1,0 +1,122 @@
+.video {
+  text-align: center;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  &__background {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 52.27%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: $border-radius;
+    cursor: pointer;
+    @extend %sectionSpace;
+
+    @include respond-to('tablet') {
+      overflow: hidden;
+      height: auto;
+      padding-bottom: 0;
+    }
+  }
+
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 95px;
+    height: 60px;
+    border-style: none;
+    background: $color-video-button;
+    background-color: transparent;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    @include flex-box (center, center);
+
+    &:active {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    & > svg {
+      width: 33px;
+      height: 29px;
+
+      path {
+        fill: $color-white;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0 50px;
+    text-align: center;
+
+    @include respond-to('tablet') {
+      padding-top: 400px;
+    }
+
+
+    & > h2 {
+      font-weight: 500;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    & > a.btn-1 {
+      display: block;
+      text-decoration: none;
+    }
+  }
+
+  &__modal {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    display: none;
+    width: 90%;
+    transform: translate(-50%, -50%);
+
+    @include respond-to('tablet') {
+      width: 60%;
+    }
+
+    &[data-active=true] {
+      display: block;
+    }
+
+    &-wrapper {
+      position: relative;
+      padding-bottom: 60%;
+
+      & > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  & > .overlay {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+  }
+}

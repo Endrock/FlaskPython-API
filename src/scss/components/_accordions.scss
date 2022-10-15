@@ -1,0 +1,106 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+@use "../abstracts/placeholders";
+
+.accordions {
+  display: grid;
+  grid-row-gap: 11px;
+  row-gap: 11px;
+  @extend %sectionSpace;
+
+  &__collection {
+
+    h2 {
+      width: 100%;
+      max-width: 465px;
+      margin: 0 auto;
+      margin-bottom: 11px;
+      text-align: center;
+    }
+  }
+
+  &-tabs {
+    @include breakpoints.respond-to('tablet') {
+      display: none;
+    }
+  }
+}
+
+.accordion-item {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &__content {
+    overflow: hidden;
+    max-height: 0;
+    margin: 0 20px;
+    font: variables.$fw-lighter 1rem/1.4rem variables.$font-family--general;
+    opacity: 0;
+    text-align: justify;
+    transition: all .25s ease-in-out;
+    @include breakpoints.respond-to('tablet') {
+      margin: 0 27px;
+    }
+  }
+
+  &__button {
+    padding: 7px 20px 12px 20px;
+    @include mixins.flex-box(space-between, center, null, null);
+    border-radius: variables.$border-radius;
+    @include mixins.box-shadow(variables.$large-shadow, variables.$shadow-gray-035);
+
+    @include breakpoints.respond-to('tablet') {
+      padding: 12px 27px 9px 27px;
+    }
+
+    svg {
+      width: 13px;
+      transition: transform .3s ease;
+
+      path {
+        fill: variables.$color-text;
+
+        @include breakpoints.respond-to('tablet') {
+          fill: variables.$color-gray;
+        }
+      }
+    }
+
+    &[data-active="true"] {
+      background-color: variables.$bg-primary;
+
+      & ~ div.accordion-item__content {
+        max-height: 100vh;
+        margin: 11px 20px 0 20px;
+        opacity: 1;
+
+        @include breakpoints.respond-to('tablet') {
+          margin: 1rem 1.8rem; //15px 27px
+        }
+      }
+
+      svg {
+        transform: rotateZ(180deg);
+
+        path {
+          fill: variables.$color-white;
+        }
+      }
+
+      h3, span {
+        color: variables.$color-white;
+      }
+    }
+
+    h3, span {
+      margin: 0;
+      color: variables.$color-text;
+      font: variables.$fw-medium 22px/1.6rem variables.$font-family--general;
+
+      @include breakpoints.respond-to('tablet') {
+        font: variables.$fw-medium 1.2rem/1.6rem variables.$font-family--general;
+      }
+    }
+  }
+}

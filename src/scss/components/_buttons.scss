@@ -1,0 +1,168 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+%button {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  @include mixins.flex-box(center, center, row);
+  padding: 11px 30px;
+  border-style: none;
+  border-radius: variables.$border-radius;
+  cursor: pointer;
+  font-size: variables.$font-size--btn;
+  font-weight: variables.$fw-medium;
+  line-height: 1.2rem;
+  outline: 0;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  @include mixins.box-shadow(variables.$small-shadow, rgba(0, 0, 0, 0.25));
+
+  &:hover {
+    @include mixins.box-shadow(variables.$small-shadow, rgba(0, 0, 0, 0.3));
+  }
+
+  &:disabled {
+    background: variables.$color-gray;
+    color: variables.$color-white;
+    pointer-events: none;
+  }
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 150%;
+    width: 200%;
+    height: 100%;
+    @include mixins.shine-bg(rgba(255, 255, 255, 0.25));
+    content: "";
+    -webkit-transform: skew(-20deg);
+    -ms-transform: skew(-20deg);
+    transform: skew(-20deg);
+  }
+
+  &:hover:after {
+    -webkit-animation: shine 0.75s cubic-bezier(0.01, 0.56, 1, 1);
+    animation: shine 0.75s cubic-bezier(0.01, 0.56, 1, 1);
+  }
+
+  @keyframes shine {
+    100% {
+      left: -200%;
+    }
+  }
+}
+
+.btn {
+  &-1 {
+    @extend %button;
+    @include mixins.btn-type(
+      $isGradient: true,
+      $color: var(--color-btn-color-1),
+      $bg: variables.$color-gradient-btn-1
+    );
+  }
+
+  &-2 {
+    @extend %button;
+    @include mixins.btn-type(
+      $color: var(--color-btn-color-2),
+      $bg: var(--color-btn-bg-2)
+    );
+
+    &:hover {
+      border: none;
+      color: var(--color-btn-color-2);
+    }
+
+    &:after {
+      @include mixins.shine-bg(variables.$color-hover-btn-2);
+    }
+  }
+
+  &-3 {
+    @extend %button;
+    @include mixins.btn-type(
+      $color: var(--color-base-brand-1),
+      $bg: var(--color-btn-bg-3),
+      $border: solid 1px var(--color-base-brand-1)
+    );
+
+    &:hover {
+      color: var(--color-btn-color-2);
+    }
+
+    &:after {
+      @include mixins.shine-bg(variables.$color-hover-btn-3);
+    }
+  }
+
+  &--small {
+    font-size: variables.$font-size--small;
+    line-height: 14px;
+  }
+
+  &__w-100 {
+    width: 100%;
+  }
+
+  &--w-small {
+    width: 155px;
+  }
+
+  &--p-50 {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-left: 50px;
+  }
+
+  &__p-70 {
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+
+  &--icon-left {
+    svg {
+      margin-right: 0.4rem;
+    }
+
+    /*
+    transition: all ease-in-out .3s;
+    @include mixins.flex-box(center, center, row);
+    svg {
+      transition: all ease-in-out .3s;
+      margin-right: 6px;
+    }
+    &:hover {
+      svg {
+        margin-right: 14px;
+      }
+    }
+    */
+  }
+
+  &--icon-right {
+    svg {
+      margin-left: 0.4rem;
+    }
+
+    /*
+    transition: all ease-in-out .3s;
+    @include mixins.flex-box(center, center, row);
+    svg {
+      margin-left: 6px;
+      transition: all ease-in-out .3s;
+    }
+    &:hover {
+      svg {
+        margin-left: 14px;
+      }
+    }
+    */
+  }
+}

@@ -1,0 +1,45 @@
+@use "../abstracts/variables";
+@use "../abstracts/breakpoints";
+
+.wrapper {
+  max-width: variables.$max-width--wrapper-mobile;
+  margin: 0 auto;
+  &--inner {
+    max-width: variables.$max-width--wrapper-mobile;
+    margin: 0 auto;
+    @include breakpoints.respond-to('tablet') {
+      max-width: variables.$max-width--wrapper-inner;
+    }
+  }
+
+  &--small {
+    max-width: variables.$max-width--wrapper-mobile;
+    margin: 0 auto;
+    @include breakpoints.respond-to('tablet') {
+      max-width: variables.$max-width--wrapper-small;
+    }
+  }
+  
+  &--extra-small {
+    max-width: variables.$max-width--wrapper-extra-small;
+    margin: 0 auto;
+  }
+
+  &--cart {
+    max-width: variables.$max-width--wrapper-mobile;
+    margin: 0 auto;
+    @include breakpoints.respond-to('tablet') {
+      max-width: variables.$max-width--wrapper-mobile;
+    }
+  }
+
+  @include breakpoints.respond-to('tablet') {
+    max-width: variables.$max-width--wrapper;
+  }
+
+  /* Just in case
+    @include breakpoints.respond-to('desktop-xl'){
+      max-width: variables.$max-width--wrapper-lg;
+    }
+  */
+}

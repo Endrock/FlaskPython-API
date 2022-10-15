@@ -1,0 +1,33 @@
+@use "../abstracts/breakpoints";
+
+.ctas {
+  width: 249px;
+  --columns: 1fr;
+  --row-gap: 25px;
+  justify-content: center;
+  margin-right: auto;
+  margin-bottom: 55px;
+  margin-left: auto;
+  @include breakpoints.respond-to("tablet") {
+    --columns: repeat(auto-fit, minmax(205px, auto));
+    --column-gap: 70px;
+    width: auto;
+  }
+
+  &__item {
+    @include breakpoints.respond-to("tablet") {
+      width: 217px;
+    }
+  }
+
+  &__wrapper {
+    @extend %sectionSpace;
+    @include breakpoints.respond-to-custom-max(768px) {
+      max-width: 75% !important;
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+}

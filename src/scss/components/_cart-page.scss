@@ -1,0 +1,96 @@
+.cartpage {
+  @extend %sectionSpace;
+  background: $color-background-cart;
+
+  &-items {
+    @include respond-to('tablet') {
+      margin-bottom: 36px;
+    }
+  }
+
+  &-header {
+    @include flex-box(center, center);
+    padding-top: 30px;
+    margin-bottom: 21px;
+  
+    &__title {
+      font-weight: $fw-semi-bold;
+    }
+  
+    &__link {
+      font-weight: $fw-regular;
+    }
+  }
+
+  &-footer {
+    padding-bottom: 5px;
+    background: $color-white;
+    box-shadow: $medium-shadow $shadow-gray-035;
+
+    &__image {
+      display: none;
+
+      @include respond-to('tablet') {
+        display: block;
+      }
+    }
+
+    &__content {
+
+      @include respond-to('tablet') {
+        padding: 17px 25px 5px;
+        background: $color-white;
+      }
+    }
+
+    &__total-text {
+      @include flex-box(space-between, center);
+      padding-top: 7px;
+      margin-bottom: 5px;
+
+      h4, span {
+        margin-bottom: 0;
+      }
+    }
+
+    &__tva {
+      @include flex-box(space-between, center);
+      margin-bottom: 14px;
+
+      span {
+        font-size: $font-size--general;
+        font-weight: $fw-lighter;
+      }
+    }
+
+    &__price {
+      @extend %h4;
+    }
+
+    &__btn {
+      margin-bottom: 14px;
+
+      a {
+        text-decoration: none;
+      }
+
+      span {
+        margin: 0 4px;
+      }
+    }
+
+    @include respond-to('tablet') {
+      background: $color-background-cart;
+      box-shadow: none;
+
+      & > .wrapper--inner {
+        @include flex-box(center, center, row-reverse);
+
+        & > div {
+          width: 50%;
+        }
+      }
+    }
+
+  }
+}

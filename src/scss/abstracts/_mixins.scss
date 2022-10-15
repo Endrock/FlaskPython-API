@@ -1,0 +1,156 @@
+@use "sass:color";
+
+@mixin btn-type($isGradient: false, $color, $bg, $border: none) {
+  color: $color;
+  @if $isGradient == false {
+    background-color: $bg;
+  } @else {
+    background-image: $bg;
+  }
+
+  @if $border != none {
+    border: $border;
+  }
+
+  & > div#loading {
+    border: 3px solid transparent;
+    border-top-color: $color;
+  }
+}
+
+/*:::::::::::::::::::::
+:::: DISPLAY: FLEX ::::
+:::::::::::::::::::::::*/
+/*
+* @param - $justify - Specifies the justification of the flex element
+* @param - $align - Specifies the alignment of the flex element
+* @param - $direc - Specifies the direction of the flex element
+*/
+
+@mixin flex-box($justify: center, $align: center, $direc: row, $wrap: null) {
+  display: flex;
+  flex-direction: $direc;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+/*:::::::::::::::::::::
+:::: DISPLAY: GRID ::::
+:::::::::::::::::::::::*/
+/*
+* @param - $col-start - Specifies a grid start position within the grid col
+* @param - $col-end - Specifies a grid end position within the grid col
+* @param - $row-start - Specifies a grid start position within the grid row
+* @param - $row-end - Specifies a grid end position within the grid row
+*/
+
+@mixin grid-child($col-start, $col-end, $row-start, $row-end) {
+  grid-column: #{$col-start}/#{$col-end};
+  grid-row: #{$row-start}/#{$row-end};
+}
+
+/*
+* @param - $grid-type - Grid type
+* @param - $args - number of columns or rows
+* @param - $row-gap - Row gap
+* @param - $column-gap - Column gap
+*/
+
+@mixin grid($grid-type, $args, $row-gap, $column-gap: $row-gap) {
+  @supports (display: grid) {
+    display: grid;
+    #{$grid-type}: #{$args};
+    grid-gap: $row-gap $column-gap;
+  }
+}
+
+/*:::::::::::::::::::::::::::::::
+:::::::: Excerpt for line :::::::
+:::::::::::::::::::::::::::::::::*/
+/*
+* @param - $lines - Lines to show
+*/
+
+@mixin excerpt-for-line($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+}
+
+/*:::::::::::::::::::::::::::::::
+:::::::: Type position :::::::
+:::::::::::::::::::::::::::::::::*/
+/*
+* @param - $type - Type of position css
+* @param - $top - Value of top position
+* @param - $right - Value of right position
+* @param - $bottom - Value of bottom position
+* @param - $left - Value of left position
+*/
+
+@mixin type-position(
+  $type: relative,
+  $top: initial,
+  $right: initial,
+  $bottom: initial,
+  $left: initial
+) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@function hexToRGB($hex, $opacity: 1) {
+  @return rgba(red($hex), green($hex), blue($hex), $opacity);
+}
+
+@function applyOpacity($hex, $opacity) {
+  $rgb: #{hexToRGB($hex)};
+  @return $rgb;
+}
+
+/*
+* Set shine backgroud image gradient properties
+*
+* @param - $center-color - Color
+*/
+
+@mixin shine-bg($center-color) {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(transparent),
+    color-stop($center-color),
+    to(transparent)
+  );
+  background-image: -o-linear-gradient(
+    left,
+    transparent,
+    $center-color,
+    transparent
+  );
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    $center-color,
+    transparent
+  );
+}
+
+/*
+* Set box-shadow with prefixs
+*
+* @param - $values - Shadow values
+* @param - $color - Color
+*/
+
+@mixin box-shadow($values, $color) {
+  -webkit-box-shadow: $values $color;
+  box-shadow: $values $color;
+}

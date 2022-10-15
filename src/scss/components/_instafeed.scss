@@ -1,0 +1,69 @@
+@use "../abstracts/breakpoints";
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.instagram-wrapper {
+  @include breakpoints.respond-to-custom-max(768px) {
+    max-width: none;
+  }
+}
+
+.insta-feed {
+  position: relative;
+  @extend %sectionSpace;
+
+  &__wrapper {
+    @include breakpoints.respond-to-custom-max(768px) {
+      //justify-content: center;
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin-bottom: 0.4375rem;
+    font-weight: variables.$fw-lighter;
+    text-align: center;
+  }
+
+  .insta-feed__prev,
+  .insta-feed__next {
+    z-index: 9999;
+    @include mixins.type-position(absolute, null, null, null, null);
+    @include mixins.flex-box(center, center, row);
+    @include breakpoints.respond-to("tablet") {
+      display: none !important;
+    }
+    display: flex !important;
+  }
+
+  .insta-feed__jsnav[data-active="false"] {
+    display: none !important;
+  }
+
+  .insta-feed__prev {
+    left: 4px !important;
+  }
+
+  .insta-feed__next {
+    right: 4px !important;
+  }
+
+  .swiper-slide {
+    display: block;
+  }
+
+  &__pagination {
+    display: none;
+    @include breakpoints.respond-to('tablet') {
+      @include mixins.flex-box(center, center, row);
+    }
+  }
+}
+
+.instafeed-container {
+  width: 100% !important;
+  padding-top: 100% !important;
+}

@@ -1,0 +1,207 @@
+.dualcontent {
+  @extend %centerSection;
+  position: relative;
+  padding: 0  29px;
+  border-radius: $border-radius;
+  @extend %sectionSpace;
+
+  @include respond-to('tablet') {
+    padding: 1.313rem 0;
+  }
+
+  .background {
+    position: absolute;
+    z-index: 0;
+    z-index: 0;
+    width: 100%;
+    height: 92.91%;
+    border-radius: 5px;
+
+    @include respond-to('tablet') {
+      width: 84.16%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    margin: 1.25rem 0 2.5rem 0;
+    text-align: center;
+
+    @include respond-to('tablet') {
+      width: 55%;
+      padding: 0 3rem;
+      margin: 4.5rem 0;
+      text-align: left
+    }
+
+    h2 {
+      @extend %h2;
+      position: relative;
+      margin-bottom: 1.5rem;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: -12px;
+        left: 0;
+        display: block;
+        width: 37px;
+        height: 1px;
+        margin: 0 auto;
+        background: $bg-primary;
+        content: '';
+
+        @include respond-to('tablet') {
+          right: auto;
+          left: auto;
+        }
+      }
+    }
+
+    p {
+      font-size: $font-size--general;
+      font-weight: $fw-lighter;
+      line-height: 21.09px;
+      text-align: justify;
+    }
+
+    a {
+      display: inline-block;
+      width: 165px;
+      text-align: center;
+    }
+  }
+
+  &__richtext {
+    margin-bottom: 19px;
+
+    p {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__image {
+    z-index: 1;
+    width: 100%;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include respond-to('tablet') {
+      width: 45%;
+    }
+  }
+
+  &--left {
+    @include flex-box(center, center, row-reverse);
+  }
+
+  &--right {
+    @include flex-box(center, center, row);
+  }
+
+  &--bg-primary {
+
+    &.dualcontent {
+
+      &--right {
+
+        .background {
+          bottom: 0;
+          left: 0;
+          background: $color-base-primary-alpha;
+        }
+      }
+
+      &--left {
+        .background {
+          right: 0;
+          bottom: 0;
+          background: $color-base-primary-alpha;
+        }
+      }
+    }
+  }
+
+  &--bg-secondary {
+
+    &.dualcontent {
+
+      &--right {
+        .background {
+          bottom: 0;
+          left: 0;
+          background: $color-base-secondary-alpha;
+        }
+      }
+
+      &--left {
+        .background {
+          right: 0;
+          bottom: 0;
+          background: $color-base-secondary-alpha;
+        }
+      }
+    }
+  }
+
+  &--up {
+    @include respond-to('max-tablet') {
+      @include flex-box(center, center, column-reverse);
+
+      &.dualcontent {
+
+        &--bg-primary {
+          .background {
+            right: 0;
+            bottom: 0;
+            background: $color-base-primary-alpha;
+          }
+        }
+
+        &--bg-secondary {
+          .background {
+            right: 0;
+            bottom: 0;
+            background: $color-base-secondary-alpha;
+          }
+        }
+      }
+    }
+  }
+
+  &--down {
+    @include respond-to('max-tablet') {
+      @include flex-box(center, center, column);
+
+      &.dualcontent {
+
+        &--bg-primary {
+          .background {
+            top: 0;
+            right: 0;
+            background: $color-base-primary-alpha;
+          }
+        }
+
+        &--bg-secondary {
+          .background {
+            top: 0;
+            right: 0;
+            background: $color-base-secondary-alpha;
+          }
+        }
+      }
+    }
+  }
+
+}

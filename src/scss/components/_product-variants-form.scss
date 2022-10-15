@@ -1,0 +1,84 @@
+.main-product {
+  &__variants {
+    margin-bottom: 23px;
+
+    @include respond-to('tablet') {
+      max-width: 390px;
+    }
+
+    form {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__add-actions {
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+    margin-bottom: 23px;
+    grid-column-gap: 8px;
+
+    @include respond-to('phone') {
+      flex-direction: row;
+    }
+
+    @include respond-to('tablet') {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-bottom: 27px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 0;
+
+      @include respond-to('phone') {
+        width: 263px;
+      }
+    }
+
+    .quantity__container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid $color-gray;
+      margin-bottom: 10px;
+      border-radius: $border-radius;
+      cursor: pointer;
+
+      @include respond-to('phone') {
+        width: 114px;
+        margin-bottom: 0;
+      }
+
+      input {
+        width: 31px;
+        border: none;
+        margin: 0 15px;
+        text-align: center;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          display: none;
+        }
+      }
+
+      button {
+        width: auto;
+        padding: 10px 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+
+      .btn-plus {
+        padding-right: 12px;
+      }
+
+      .btn-less {
+        padding-left: 12px;
+      }
+    }
+  }
+}

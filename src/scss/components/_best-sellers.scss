@@ -1,0 +1,32 @@
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+.best-sellers {
+
+  padding: 0 15px;
+
+  &__section {
+    @include mixins.type-position(relative, null, null, null, null);
+    margin-bottom: 55px;
+    @include breakpoints.respond-to("tablet") {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 22px;
+    text-align: center;
+    @include breakpoints.respond-to("tablet") {
+      margin-bottom: 31px;
+    }
+  }
+
+  &__slide {
+    padding: 5px 0px 20px !important;
+  }
+
+  .product-card {
+    max-width: none !important;
+    margin: 0 7.5px !important;
+  }
+}

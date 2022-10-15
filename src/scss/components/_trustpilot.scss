@@ -1,0 +1,21 @@
+@use "../abstracts/variables";
+
+.trustpilot-widget {
+  padding: 0.9375rem 0.8125rem 0.75rem;
+  margin-bottom: 1.3125rem;
+  background-color: variables.$color-white;
+  border-radius: variables.$border-radius;
+
+  .profile-link {
+    /* stylelint-disable-next-line font-weight-notation */
+    font: normal variables.$fw-regular variables.$font-size--general variables.$font-family--general !important;
+  }
+}
+
+.main-product__star-rating,
+.reviews-carousel {
+  .trustpilot-widget {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+}

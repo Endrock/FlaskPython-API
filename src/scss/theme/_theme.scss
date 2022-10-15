@@ -1,0 +1,124 @@
+@use "../abstracts/variables";
+@use "../abstracts/breakpoints";
+@use "../abstracts/placeholders";
+
+%margin-title {
+  margin-bottom: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: variables.$color-text;
+  font-family: variables.$font-family--general;
+  font-size: variables.$font-size--general;
+}
+
+.margin-title {
+  @extend %margin-title;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.title {
+  display: block;
+  color: variables.$color-title;
+  font-family: variables.$font-family--title;
+  font-size: variables.$font-size--h1;
+  font-weight: 600;
+  @extend %margin-title;
+}
+
+h1,
+.h1 {
+  @extend %h1;
+  @extend %margin-title;
+}
+
+h2,
+.h2 {
+  @extend %h2;
+  @extend %margin-title;
+}
+
+h3,
+.h3 {
+  @extend %h3;
+  @extend %margin-title;
+}
+
+h4,
+.h4 {
+  @extend %h4;
+  @extend %margin-title;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+  @extend %hn;
+  @extend %margin-title;
+}
+
+a {
+  color: var(--color-base-link);
+  text-decoration: underline;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/**
+* class to add aspect ratio using padding hack
+*/
+.aspect-ratio {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &--1-1 {
+    padding-top: 100%;
+  }
+
+  &--4-3 {
+    padding-bottom: 75%;
+  }
+
+  &--3-4 {
+    padding-bottom: 133.33%;
+  }
+
+  &--21-9 {
+    padding-top: 42.857142857%;
+  }
+
+  &--16-9 {
+    padding-top: 56.25%;
+  }
+
+  &--9-16 {
+    padding-top: 132.25%;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+body[data-scroll="false"] {
+  overflow: hidden;
+}

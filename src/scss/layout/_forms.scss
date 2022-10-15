@@ -1,0 +1,188 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+@import "../components/customcheckbox";
+
+.my-contact {
+  display: grid;
+  max-width: 440px;
+  margin: 0 auto;
+  column-gap: 20px;
+  grid-column-gap: 20px;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  grid-row-gap: 20px;
+  row-gap: 20px;
+}
+
+/* form inputs animation */
+.form__textfield {
+  position: relative;
+  display: flex;
+  padding: 0;
+  border: none;
+  margin-bottom: 0.9333333333333333rem; //14px
+  border-radius: variables.$border-radius;
+  @include mixins.box-shadow(
+    variables.$large-shadow,
+    variables.$shadow-gray-050
+  );
+  font: variables.$fw-regular variables.$font-size--general
+    variables.$font-family--general;
+
+  &--icon {
+    @include mixins.flex-box(center, center, row);
+  }
+
+  label,
+  .custom-select__selected {
+    padding: 0 1.33333333rem; //0 20px
+    color: variables.$color-gray-dark;
+    font-weight: variables.$fw-regular;
+    line-height: 1.4rem; //21px
+  }
+  .custom-select__selected {
+    padding: 0;
+    line-height: unset;
+  }
+
+  label:not(.custom-select__option) {
+    transform: translateY(-50%);
+    transition: 0.5s ease;
+    @include mixins.type-position(absolute, 50%, null, null, null);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border-style: none;
+    color: variables.$color-text;
+    line-height: 1.4rem; //21px
+    outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus + label:not(.custom-select__option),
+    &:not(:placeholder-shown) + label:not(.custom-select__option) {
+      top: 0;
+      font-size: 0.6666666666666667rem; //10px
+      opacity: 0.7;
+      transform: translateY(-0.1rem);
+    }
+  }
+
+  textarea {
+    @include mixins.box-shadow(
+      variables.$medium-shadow,
+      variables.$shadow-black-010
+    );
+  }
+
+  select {
+    width: 100%;
+    border-style: none;
+    outline: none;
+  }
+
+  input,
+  textarea,
+  select,
+  .custom-select__content {
+    padding: 0.6666666666666667rem 1.33333333rem; //10px 20px
+    background: transparent;
+  }
+
+  input,
+  label,
+  textarea,
+  select {
+    cursor: pointer;
+  }
+
+  &--small-mb {
+    margin-bottom: 0.933333rem; //14px
+  }
+
+  &--big-mb {
+    margin-bottom: 1.2rem; //18px
+  }
+
+  &-icon-wrapper {
+    padding-right: 20px;
+    cursor: pointer;
+    @include mixins.flex-box(center, center, row);
+
+    &[data-active="false"] {
+      
+      .form__textfield--icon-open {
+        display: block;
+      }
+      
+      .form__textfield--icon-close {
+        display: none;
+      }
+    }
+    
+    &[data-active="true"] {
+      
+      .form__textfield--icon-open {
+        display: none;
+      }
+      
+      .form__textfield--icon-close {
+        display: block;
+      }
+    }
+  }
+}
+
+.form__radio-button {
+  display: flex;
+  align-items: center;
+
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    accent-color: #000;
+  }
+}
+
+.form__question {
+  display: grid;
+  column-gap: 20px;
+  grid-column-gap: 20px;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  grid-row-gap: 20px;
+  row-gap: 20px;
+  text-align: left;
+
+  &--answer {
+    font-weight: 600;
+  }
+}
+
+.form__message {
+  @include mixins.flex-box(flex-start, center, row);
+  font-size: variables.$font-size--general !important;
+
+  svg {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+}
+
+.form-errors {
+  padding: 10px;
+  background-color: variables.$color-base-primary-alpha;
+  border-radius: variables.$border-radius;
+
+  .errors {
+    ul {
+      padding-left: 10px;
+      list-style: none;
+    }
+  }
+}

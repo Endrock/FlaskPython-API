@@ -1,0 +1,22 @@
+.list-icons-social {
+  --justify: center;
+  list-style-type: none;
+
+  &__item {
+    a {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFF;
+      border-radius: 5px;
+
+      svg {
+        width: 15px;
+        height: auto;
+        color: #000;
+      }
+    }
+  }
+}

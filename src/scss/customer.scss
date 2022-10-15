@@ -1,0 +1,191 @@
+@use "./abstracts/mixins";
+@use "./abstracts/breakpoints";
+@use "./abstracts/variables";
+
+.account {
+  &__title {
+    width: 100%;
+    text-align: center;
+  }
+  
+  &__logout {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  
+  .customer {
+    &__info {
+      margin-bottom: 40px;
+      @include mixins.flex-box(space-between, flex-start, column);
+      @include breakpoints.respond-to("tablet") {
+        flex-direction: row;
+      }
+
+      &-orders {
+        width: 100%;
+        flex: 0 0 72%;
+
+        .order-history {
+          thead {
+            @include breakpoints.respond-to-custom-max(768px) {
+              display: none;
+            }
+            
+            th {
+              padding: 11px 19px 17px;
+              font-family: variables.$font-family--semibold;
+              font-weight: variables.$fw-regular;
+              text-align: left;
+            }
+          }
+
+          tbody {
+            padding: 11px 19px 18px;
+            @include breakpoints.respond-to("tablet") {
+              background-color: variables.$color-white;
+              border-radius: 10px;
+              box-shadow: 0px 4px 19px rgba(175, 195, 206, 0.35);
+            }
+            
+            tr {
+              @include breakpoints.respond-to-custom-max(768px) {
+                @include mixins.flex-box(flex-start, flex-start, column);
+              }
+
+              &:not(:last-child) {
+                @include breakpoints.respond-to("tablet") {
+                  border-bottom: 1px solid 1px solid rgb(43 43 43 / 0.4);
+                }
+              }
+
+              &:first-child {
+                td {
+                  padding-top: 11px;
+                }
+              }
+              &:last-child {
+                td {
+                  padding-bottom: 18px;
+                }
+              }
+            }
+
+            td {
+              position: relative;
+              font-weight: variables.$fw-lighter;
+              text-align: left;
+              @include breakpoints.respond-to("tablet") {
+                padding: 11px 19px 17px;
+              }
+              
+              @include breakpoints.respond-to-custom-max(768px) {
+                width: 100%;
+              }
+
+              &.column-order {
+                a {
+                  @include breakpoints.respond-to-custom-max(768px) {
+                    display: block;
+                    width: 100% !important;
+                  }
+                }
+              }
+
+              &.column-ammount {
+                font-weight: 600;
+              }
+
+              &:not(.column-order)::before {
+                display: block;
+                width: 100%;
+                padding-right: 2rem;
+                content: attr(data-label);
+                font-weight: 600;
+                @include breakpoints.respond-to("tablet") {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      &-sidebar {
+        width: 100%;
+        flex: 0 0 25%;
+      }
+    }
+  }
+
+  .account-nav {
+    width: 100%;
+    max-width: 682px;
+    margin: 25px auto 50px;
+
+    &__item {
+      a {
+        padding: 11px 20px;
+      }
+    }
+
+    .grid {
+      --columns: 1fr !important;
+      @include breakpoints.respond-to("tablet") {
+        --columns: repeat(3, 1fr) !important;
+      }
+      padding-left: 0;
+      list-style: none;
+    }
+  }
+
+  .account-product__status {
+    color: variables.$color-brand-1;
+    font-weight: variables.$fw-regular;
+  }
+
+  .account-product__footer {
+    display: table;
+    margin-top: 15px;
+    @include breakpoints.respond-to("tablet") {
+      display: none;
+    }
+
+    tr {
+      td {
+        @include breakpoints.respond-to-custom-max(768px) {
+          padding-bottom: 1rem;
+        }
+
+        &:not(.column-order)::before {
+          display: block;
+          width: 100%;
+          padding-right: 2rem;
+          content: attr(data-label);
+          font-weight: 600;
+          @include breakpoints.respond-to("tablet") {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .account-product__sidebar {
+    .account-product__address-payment {
+      margin-bottom: 40px;
+    }
+  }
+
+  .account__heading {
+    margin-bottom: 100px;
+  }
+
+  .cell-hidden {
+    display: none;
+    @include breakpoints.respond-to("tablet") {
+      display: table-cell;
+    }
+  }
+}

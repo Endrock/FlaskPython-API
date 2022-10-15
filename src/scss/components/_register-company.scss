@@ -1,0 +1,106 @@
+.register {
+
+  &-b2b {
+    @extend %sectionSpace;
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      width: 100%;
+      max-width: 355px;
+      flex-direction: column;
+      margin: 0 auto;
+
+      button {
+        padding: 11px 78px;
+      }
+    }
+
+    &__label {
+      @include flex-box(flex-end, center, row-reverse);
+      margin-bottom: 14px;
+
+      span {
+        color: $color-bg-dark;
+        font-size: $font-size--general;
+        font-weight: $fw-lighter;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px 20px;
+        border: none;
+        background: $color-white;
+        border-radius: $border-radius;
+        box-shadow: $large-shadow $shadow-gray-035;
+
+        &::placeholder {
+          color: $color-gray-dark;
+          font-size: $font-size--general;
+          font-weight: $fw-regular;
+        }
+      }
+
+      input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        border: 1px solid $color-gray;
+        margin-right: 11px;
+        border-radius: 2px;
+      }
+
+    }
+
+    select {
+      width: 100%;
+      padding: 10px 20px;
+      border: none;
+      margin-bottom: 14px;
+      box-shadow: $large-shadow $shadow-gray-035;
+    }
+
+    .shipping-address-container {
+      padding-top: 15px;
+      border-top: 1px solid $color-gray;
+      border-bottom: 1px solid $color-gray;
+      margin-bottom: 14px;
+
+      span {
+        display: block;
+        margin-bottom: 14px;
+        color: $color-bg-dark;
+      }
+    }
+
+    .error-section {
+      display: block;
+      margin-top: 14px;
+      color: $color-brand-1;
+      font-size: $font-size--general;
+      font-weight: $fw-regular;
+      text-align: center;
+    }
+
+    .register-message {
+      display: block;
+      margin-top: 14px;
+      color: $color-brand-2;
+      font-size: $font-size--general;
+      font-weight: $fw-regular;
+      text-align: center;
+
+      &.error {
+        color: $color-brand-1;
+      }
+    }
+
+  }
+
+  .tabs__contents {
+    background: none;
+  }
+}

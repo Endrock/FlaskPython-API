@@ -1,0 +1,48 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+.breadcrumb {
+  ul {
+    padding: 10px 0;
+    margin: 0.2rem 0 1.25rem;
+    list-style: none;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    white-space: nowrap;
+    @include breakpoints.respond-to('tablet-m') {
+      margin: 20px 0;
+    }
+    @include breakpoints.respond-to-custom-max(400px) {
+      margin: 0 0 0.5rem;
+    }
+    @include mixins.flex-box(null, center, null);
+    li {
+      color: variables.$color-text;
+      /* stylelint-disable-next-line font-weight-notation */
+      font: normal variables.$fw-semi-regular variables.$font-size--small variables.$font-family--title;
+      &:not(:last-child) {
+        a {
+          color: variables.$color-gray-dark;
+          &::after {
+            padding: 0 10px;
+            content: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.129032 0.127047C0.301075 -0.0423484 0.58191 -0.0423484 0.753953 0.127047L3.87097 3.1911C3.95699 3.2758 4 3.3879 4 3.5C4 3.6121 3.95446 3.7242 3.87097 3.8089L0.756483 6.87295C0.58444 7.04235 0.303605 7.04235 0.131562 6.87295C-0.0404807 6.70356 -0.0404807 6.42705 0.131562 6.25765L2.92979 3.5L0.129032 0.742349C-0.043011 0.572954 -0.043011 0.296442 0.129032 0.127047Z' fill='%23828282'/%3E%3C/svg%3E");
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: variables.$color-brand-1;
+      border-radius: 3px;
+    }
+  }
+}

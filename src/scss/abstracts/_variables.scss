@@ -1,0 +1,95 @@
+/**
+* REM based on $font-size--general: 15px;
+*/
+
+$max-width--wrapper: 93%;
+$max-width--wrapper-mobile: 93.6%;
+$max-width--wrapper-inner: 80%;
+$max-width--wrapper-small: 758px;
+$max-width--wrapper-extra-small: 420px;
+// $max-width--wrapper-lg: 1440px; Just in case
+
+$paddings-side: 5rem;
+$paddings-side--movil: 1rem;
+
+$margin-section: 3.33333333rem; // 50px
+$margin-section--mobile: 1.33333333rem; // 20px
+
+$border-radius: 0.313rem; // 5px
+
+/* ====== Font ====== */
+$font-family--general: "Lato-Regular", sans-serif;
+$font-size--general: 15px;
+
+$font-family--semibold: "Lato-SemiBold", sans-serif;
+$font-family--title: "Lato-Regular", sans-serif;
+$font-size--h1: 30px;
+$font-size--h1-desktop: 40px;
+$font-size--h2: 25px;
+$font-size--h2-desktop: 32px;
+$font-size--h3: 22px;
+$font-size--h4: 18px;
+$font-size--hn: 1rem;
+$font-size--btn: 1rem;
+$font-size--small: 12px;
+$font-size--extra-small: 10px;
+
+$fw-lighter: 300;
+$fw-semi-regular: 400;
+$fw-regular: 500;
+$fw-medium: 600;
+$fw-semi-bold: 700;
+
+/* ====== Colors ====== */
+$color-brand-1: var(--color-base-brand-1);
+$color-brand-2: var(--color-base-brand-2);
+$color-text: var(--color-base-text);
+$color-title: var(--color-base-title);
+$color-background: var(--color-base-bg);
+$color-background-body: var(--color-base-bg-body);
+$color-link: var(--color-base-link);
+
+$color-base-primary-alpha: var(--color-base-primary-alpha);
+$color-base-secondary-alpha: var(--color-base-secondary-alpha);
+
+$bg-btn-1-color-1: var(--color-btn-bg-1);
+$bg-btn-1-color-2: var(--color-btn-bg-1-2);
+
+$color-hover-btn-2: var(--color-hover-btn-2);
+$color-hover-btn-3: var(--color-hover-btn-3);
+
+$bg-primary: var(--color-base-bg);
+$bg-secondary: var(--color-base-bg-secondary);
+
+$color-gradient-btn-1: linear-gradient(
+  269.65deg,
+  $bg-btn-1-color-2 25.1%,
+  $bg-btn-1-color-1 91.25%
+);
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-text-dark: #333333;
+$color-gray: #bdbdbd;
+$color-gray-bg: #f2f2f2;
+$color-gray-light: #e0e0e0;
+$color-gray-dark: #828282;
+$color-bg-dark: #2b2b2b;
+$color-gray-extra-light: #d9d9d9;
+$color-light-blue: #087b8b;
+$color-video-button: #C42463;
+$color-checkbox-selly: #62C9D7;
+$color-background-cart: #f5f5f5;
+
+$thin-shadow: 0px 2px 4px;
+$cart-shadow: 0px -1px 4px;
+$small-shadow: 0px 4px 4px;
+$medium-shadow: 0px 4px 14px;
+$large-shadow: 0px 4px 19px;
+
+$shadow-gray-050: rgba(175, 195, 206, 0.5);
+$shadow-gray-035: rgba(175, 195, 206, 0.35);
+$shadow-black-010: rgba(0, 0, 0, 0.1);
+$shadow-black-015: rgba(0, 0, 0, 0.15);
+$shadow-black-025: rgba(0, 0, 0, 0.25);
+$shadow-black-035: rgba(0, 0, 0, 0.35);

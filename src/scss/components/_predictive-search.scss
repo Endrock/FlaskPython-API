@@ -1,0 +1,9 @@
+@use "../abstracts/variables";
+
+#predictive-search {
+  position: absolute;
+  z-index: 9;
+  display: block;
+  width: 100%;
+  background: white;
+}

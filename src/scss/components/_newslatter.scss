@@ -1,0 +1,55 @@
+@use "../abstracts/variables";
+
+.footer__newsletter-email {
+  padding-left: 10px !important;
+}
+
+.newsletter {
+  max-width: 600px;
+  padding: auto variables.$paddings-side;
+  padding-top: variables.$paddings-side;
+  padding-bottom: variables.$paddings-side;
+  margin: 0 auto;
+  text-align: center;
+
+  @media screen and (max-width: 749px) {
+    padding-right: variables.$paddings-side--movil;
+    padding-left: variables.$paddings-side--movil;
+  }
+
+  & > p {
+    margin-bottom: 20px;
+  }
+
+  &-law {
+    font-size: variables.$font-size--small;
+  }
+
+  &-form {
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    .form__textfield {
+      .footer__newsletter-email {
+        padding-left: 10px !important;
+      }
+    }
+
+    &__wrapper {
+      --columns: 1fr;
+    }
+
+    &__message {
+      &--success {
+        border-color: #338536;
+        margin-top: 20px;
+        background-color: #4caf4f41;
+      }
+      &--error {
+        display: none;
+        border-color: #853833;
+        margin-top: 20px;
+        background-color: #af4c4c41;
+      }
+    }
+  }
+}

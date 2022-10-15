@@ -1,0 +1,41 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+.social-icons {
+  margin: 0.5rem 0 0.9375rem;
+  @include breakpoints.respond-to("tablet") {
+    margin-top: 1.3rem;
+  }
+
+  &.social-icons--shared {
+    .social-icons__title {
+      color: variables.$color-text;
+    }
+  }
+
+  &__title {
+    color: variables.$color-white;
+    text-align: left;
+  }
+
+  ul {
+    @include mixins.flex-box(flex-start, center, row);
+    column-gap: 5px;
+    list-style: none;
+
+    li {
+
+      a {
+        width: 2.625rem;
+        height: 2.625rem;
+
+        svg {
+          width: 2.625rem;
+          height: 2.625rem;
+        }
+      }
+
+    }
+  }
+}

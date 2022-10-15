@@ -1,0 +1,87 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.card-article {
+  overflow: hidden;
+  width: 100%;
+  background-color: variables.$color-white;
+  border-radius: variables.$border-radius;
+  box-shadow: variables.$large-shadow variables.$shadow-gray-050;
+
+  &__body {
+    padding: 0.666666667rem 1.2rem 1rem;
+  }
+
+  &--large {
+    .card-article__body {
+      padding: 16px 20px 28px;
+    }
+
+    .card-article__title {
+      h3 {
+        margin-bottom: 0.625rem;
+      }
+    }
+  }
+
+  &__date {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  &__title {
+
+    margin-bottom: 0;
+
+    svg {
+      margin-left: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      @include mixins.flex-box(flex-start, center, row);
+    }
+  }
+
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &--large {
+    /* stylelint-disable-next-line no-duplicate-selectors */
+    .card-article__title {
+      margin-bottom: 0.625rem;
+    }
+  }
+
+  &__excerpt {
+    margin-bottom: 1.4063rem;
+    /* stylelint-disable-next-line font-weight-notation */
+    font: normal variables.$fw-lighter variables.$font-size--general
+      variables.$font-family--general;
+
+    h1, h2, h3, h4, h5, h6 {
+      display: none;
+    }
+  }
+
+  &__tags {
+    @include mixins.flex-box(flex-start, center, row);
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    column-gap: 10px;
+    list-style: none;
+    row-gap: 10px;
+
+    &--empty {
+      margin-top: 22.4px;
+    }
+
+    li {
+      padding: 4px 16px;
+      background-color: variables.$color-base-secondary-alpha;
+      border-radius: 100px;
+      color: variables.$color-brand-1;
+      /* stylelint-disable-next-line font-weight-notation */
+      font: normal variables.$fw-medium variables.$font-size--small
+        variables.$font-family--general;
+    }
+  }
+}

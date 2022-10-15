@@ -1,0 +1,9 @@
+@use "../abstracts/breakpoints";
+
+.carousel-blog {
+  margin: 15px 0;
+  @include breakpoints.respond-to-custom-max(768px) {
+    --columns: 1fr;
+    grid-template-columns: var(--columns);
+  }
+}

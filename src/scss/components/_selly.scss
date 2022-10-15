@@ -1,0 +1,114 @@
+/* stylelint-disable selector-class-pattern */
+@import "../abstracts/placeholders";
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+@import "../abstracts/breakpoints";
+@import "./buttons";
+
+.tdf_bundle.tdf_container {
+  .tdf_bundle_content.tdf_nonpopup {
+
+    .tdf_bundle_message {
+      h2 {
+        @extend %h3;
+        font-size: $font-size--h3 !important;
+        text-align: center;
+
+        @include respond-to("tablet") {
+          text-align: left;
+        }
+      }
+    }
+
+    .tdf_bundle_product {
+      .tdf_bundle_product_container {
+        display: grid;
+        grid-template-columns: 1fr 15px 1fr;
+
+        .tdf_plus_icon {
+          background-image: url("https://cdn.shopify.com/s/files/1/0594/0749/9364/files/plus.svg?v=1663881022");
+        }
+
+        .tdf_bundle_product_item.tdf_bundle_product_item_1 {
+          width: 100% !important;
+
+          .tdf_vertical_product {
+            min-height: 250px;
+            padding-top: 8px;
+            margin-bottom: 15px;
+            background: $color-gray-bg;
+
+            .tdf_vertical_name.no-transition {
+              h4 {
+                font-size: $font-size--general;
+                font-weight: $fw-regular;
+              }
+            }
+
+            .tdf_bundle_img.no-transition {
+              background-color: $color-gray-bg;
+            }
+
+            .tdf_vertical_variants {
+              padding: 0 10px;
+            }
+
+            /* stylelint-disable-next-line no-duplicate-selectors */
+            .tdf_bundle_item_bottom {
+              bottom: 8px;
+              padding: 0 10px;
+
+              .tdf_checkbox_container {
+                .tdf_checkbox_wrapper {
+                  .tdf_checkmark {
+                    border-color: $color-checkbox-selly;
+                    background-color: $color-white;
+
+                    &::after {
+                      border-color: $color-checkbox-selly;
+                    }
+                  }
+                }
+              }
+
+              .tdf_vertical_price {
+                span {
+                  font-size: $font-size--small;
+                  font-weight: $fw-semi-bold;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tdf_bundle_left {
+
+      .tdf_normal_btn.no-transition {
+        width: 100%;
+        margin: 11px 0;
+        @extend %button;
+        @include btn-type(
+          $isGradient: true,
+          $color: var(--color-btn-color-1),
+          $bg: $color-gradient-btn-1
+        );
+      }
+
+      .tdf_bundle_price {
+
+        span {
+          font-size: $font-size--general !important;
+          font-weight: $fw-semi-regular !important;
+        }
+
+        .tdf_price_sales {
+          .tdf_money.money {
+            color: $color-brand-1;
+          }
+        }
+      }
+    }
+  }
+}

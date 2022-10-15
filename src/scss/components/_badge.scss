@@ -1,0 +1,26 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.badge {
+  padding: 0.25rem 0.625rem;
+  background-color: variables.$color-white;
+  border-radius: 6.25rem;
+  color: variables.$color-text;
+  /* stylelint-disable-next-line font-weight-notation */
+  font: normal variables.$fw-medium variables.$font-size--hn variables.$font-family--general;
+  text-align: center;
+  text-decoration: none;
+
+  &-rd-5 {
+    border-radius: variables.$border-radius;
+  }
+
+  &-small {
+    padding: 7px 15px;
+  }
+
+  &-primary {
+    background-color: variables.$color-brand-1;
+    color: variables.$color-white;
+  }
+}

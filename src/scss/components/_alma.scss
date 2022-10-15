@@ -1,0 +1,70 @@
+/* stylelint-disable selector-class-pattern */
+#alma-badge {
+  padding: 5px 15px;
+  border: 1px solid $color-gray;
+  margin-bottom: 8px;
+  border-radius: $border-radius;
+  box-shadow: $medium-shadow $shadow-black-010;
+
+  .alma-payment-plans-container {
+    padding: 0;
+    border: none;
+    @include flex-box (flex-start, center );
+
+    .alma-payment-plans-eligibility-line {
+      align-items: center;
+
+      ._LJ4nZ {
+        color: $color-text;
+
+        path {
+          color: $color-text;
+          fill: $color-text;
+        }
+
+        rect {
+          color: $color-brand-1;
+          fill: $color-brand-1;
+        }
+      }
+
+      .alma-payment-plans-eligibility-options {
+        flex-wrap: nowrap;
+
+        ._2Kqjn {
+          width: 26px;
+          height: 26px;
+          padding: 3px;
+          margin-bottom: 7px;
+          background: $color-gray-extra-light;
+          border-radius: 2px;
+          color: $color-white;
+        }
+
+        ._2Kqjn._3dG_J {
+          position: relative;
+          border-bottom: none !important;
+          background: $color-gray-dark;
+
+          &::after {
+            position: absolute;
+            bottom: -6px;
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: $color-gray-dark;
+            content: '';
+          }
+        }
+      }
+    }
+
+    .alma-payment-plans-payment-info {
+      margin-top: 0;
+      margin-left: 11px;
+      color: $color-text;
+      font-family: $font-family--general;
+      font-size: $font-size--general;
+    }
+  }
+}

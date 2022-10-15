@@ -1,0 +1,10 @@
+.home-faq {
+
+  @extend %sectionSpace;
+
+  &__title {
+    max-width: 465px;
+    margin: 0 auto 15px;
+    text-align: center;
+  }
+}

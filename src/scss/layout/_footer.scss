@@ -1,0 +1,357 @@
+@use "../abstracts/variables";
+@use "../abstracts/breakpoints";
+@use "../abstracts/mixins";
+
+.footer {
+  --column-gap: 30px;
+  --row-gap: 50px;
+  --rows: auto;
+  border-top: none;
+  background-color: variables.$color-text;
+  color: variables.$color-white;
+  &__payments {
+    @include mixins.flex-box(center, flex-start, column);
+    @include breakpoints.respond-to-custom-max(768px) {
+      width: 100%;
+    }
+  }
+  &__copyright {
+    padding: 20px 0 25px;
+    text-align: center;
+    span {
+      font-size: variables.$font-size--general !important;
+    }
+  }
+  &-blocks {
+    flex-wrap: wrap;
+    padding: 44px 0 28px !important;
+    @include mixins.flex-box(space-between, flex-start, row);
+    .trustpilot-newsletter {
+      width: 100%;
+      order: 1;
+      @include breakpoints.respond-to('tablet') {
+        width: 33.333%;
+      }
+    }
+    .footer-blocks__info {
+      width: 100%;
+      order: 3;
+      @include breakpoints.respond-to('tablet') {
+        width: 18%;
+        order: 2;
+        margin-bottom: 0 !important;
+      }
+      .footer__nav-accordeon {
+        .accordion-item__button {
+          span, h3 {
+            width: 100%;
+            color: variables.$color-white;
+            font-size: variables.$font-size--h3 !important;
+            @include mixins.flex-box(space-between, center, row);
+          }
+          svg {
+            @include breakpoints.respond-to('tablet') {
+              display: none;
+            }
+          }
+        }
+        & > .accordion-item__button {
+          padding-bottom: 13px;
+          margin-bottom: 30px;
+          @include breakpoints.respond-to("tablet") {
+            padding-bottom: 29px;
+            margin-bottom: 0;
+          }
+          span {
+            width: 100%;
+            @include mixins.flex-box(space-between, center, row);
+          }
+          svg {
+            width: 36.44px;
+            height: 35px;
+            padding: 10px;
+            border: solid 1px variables.$color-white;
+            border-radius: 50%;
+            @include breakpoints.respond-to('tablet') {
+              display: none;
+            }
+            path {
+              fill: variables.$color-white;
+            }
+          }
+        }
+      }
+    }
+    .payment-social {
+      width: 100%;
+      order: 4;
+      @include breakpoints.respond-to('tablet') {
+        width: 33.333%;
+        order: 3;
+      }
+
+      .payment-image {
+        &--desktop {
+          display: none;
+          @include breakpoints.respond-to('tablet') {
+            display: block;
+          }
+        }
+        &--mobile {
+          display: block;
+          margin-bottom: 25px;
+          @include breakpoints.respond-to('tablet') {
+            display: none;
+          }
+        }
+      }
+    }
+    .footer__nav--horizontal {
+      width: 100% !important;
+      order: 2;
+      @include breakpoints.respond-to('tablet') {
+        order: 4;
+        margin-bottom: 0 !important;
+      }
+      .footer-nav {
+        margin-bottom: 0 !important;
+        .footer-nav__list {
+          @include breakpoints.respond-to('tablet') {
+            @include mixins.grid(
+              grid-template-columns,
+              repeat(6, 1fr),
+              10px,
+              10px
+            );
+          }
+          .footer-nav__list--childs {
+            grid-template-columns: 1fr;
+            row-gap: 0px;
+          }
+        }
+      }
+      & > .footer__nav-horizontal {
+        & > .accordion-item__button {
+          padding-bottom: 13px;
+          margin-bottom: 30px;
+          @include breakpoints.respond-to("tablet") {
+            padding-bottom: 29px;
+            margin-bottom: 0;
+          }
+
+          span, h3 {
+            width: 100%;
+            color: variables.$color-white;
+            font-size: variables.$font-size--h3 !important;
+            @include mixins.flex-box(space-between, center, row);
+          }
+          svg {
+            width: 36.44px;
+            height: 35px;
+            padding: 10px;
+            border: solid 1px variables.$color-white;
+            border-radius: 50%;
+            @include breakpoints.respond-to('tablet') {
+              display: none;
+            }
+            path {
+              fill: variables.$color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__secureband {
+    height: 30px;
+    box-sizing: border-box;
+    padding: 6px 30px 8px !important;
+    background-color: variables.$color-brand-2;
+    font: normal 500 variables.$font-size--general variables.$font-family--semibold;
+    text-align: center;
+    @include mixins.flex-box(center, center, row);
+    p {
+      line-height: normal;
+    }
+  }
+  &__contact-card {
+    @include mixins.flex-box(flex-start, center, row);
+    width: 100%;
+    margin: 8px 0;
+    @include breakpoints.respond-to("tablet") {
+      margin: 15px 0;
+    }
+    img {
+      margin-right: 1rem;
+    }
+    p {
+      text-align: left;
+    }
+  }
+  &__nav {
+    & > .footer__nav-accordeon {
+      & > .accordion-item__button {
+        padding: 15px 0px 0px;
+        border: none;
+        border-bottom: 1px solid variables.$color-white;
+        background-color: transparent !important;
+        border-radius: 0;
+        box-shadow: none !important;
+        font-size: variables.$font-size--h3;
+        font-weight: variables.$fw-medium;
+        &[data-active="true"] ~ .accordion-item__content {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: flex-start;
+          margin-top: 0px !important;
+          margin-right: 0px !important;
+          margin-left: 0px !important;
+          column-gap: 20px;
+          .footer-nav {
+            width: 100%;
+          }
+        }
+        @include breakpoints.respond-to('tablet') {
+          border-bottom: none;
+        }
+        & > .icon {
+          width: 35px;
+          height: 35px;
+          padding: 10px;
+          border: solid 1px variables.$color-white;
+          border-radius: 50%;
+          @include breakpoints.respond-to("tablet") {
+            display: none;
+          }
+        }
+        @include breakpoints.respond-to("tablet") {
+          padding-top: 0;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  &__bottom-nav {
+    position: relative;
+    border-top: none !important;
+    &::before {
+      width: 4.125rem;
+      height: 0.0625rem;
+      margin-right: -33px;
+      margin-left: -33px;
+      background-color: variables.$color-white;
+      content: "";
+      @include mixins.type-position(absolute, 0.3125rem, 50%, null, 50%);
+    }
+    .footer__bottom-list {
+      @include mixins.flex-box(center, center, row);
+      flex-wrap: wrap;
+      padding: 0 1.4375rem;
+      list-style: none;
+      row-gap: 0.625rem;
+      li {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+        a {
+          color: variables.$color-white;
+          font-size: variables.$font-size--small;
+          font-weight: variables.$fw-semi-bold;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__notification {
+    @extend %notification;
+    &--success {
+      @extend %notification;
+      color: #23C552;
+    }
+    &--error {
+      @extend %notification;
+      color: #F84F31;
+    }
+  }
+  @media screen and (max-width: 650px) {
+    text-align: center;
+    --columns: 1fr;
+  }
+  > * {
+    padding: 20px 0;
+  }
+  > *:last-child {
+    padding: 20px 0;
+    text-align: center;
+    --gap-flex: 10px;
+    & > span {
+      font-size: 10px;
+    }
+  }
+  .footer-title {
+    display: block;
+    margin-bottom: 25px;
+    color: variables.$color-white;
+    font-size: variables.$font-size--h3;
+    font-weight: 600;
+    text-align: left;
+  }
+  .footer-subtitle {
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  ul.footer-list {
+    list-style: none;
+    li:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+    li > a {
+      color: #000;
+      font-size: 16px;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .footer-newslatter {
+    align-items: center;
+    padding: 2px 10px;
+    background-color: variables.$color-white;
+    box-shadow: none;
+    label {
+      left: 22px;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      border-style: none;
+      margin: 0;
+      background-color: transparent;
+      color: variables.$color-text;
+      cursor: pointer;
+      svg {
+        width: 20px;
+      }
+    }
+  }
+}
+%notification {
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
+  text-align: left;
+}
+#ContactFooter {
+  &-success {
+    @extend %notification;
+    color: #23C552;
+  }
+  &-error {
+    @extend %notification;
+    color: #F84F31;
+  }
+}

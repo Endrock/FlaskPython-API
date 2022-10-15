@@ -1,0 +1,61 @@
+.featuredicons {
+  @extend %sectionSpace;
+  display: grid;
+  align-items: flex-start;
+  justify-content: center;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(172px, 320px));
+
+  &__title {
+    @extend %h2;
+    text-align: center;
+  }
+
+  &__container {
+    margin: .5rem 0;
+    margin-bottom: 15px;
+    @include flex-box(center, center, column);
+
+
+    .icon {
+
+      &__circle {
+        width: 77px;
+        height: 77px;
+        margin-bottom: 13px;
+        border-radius: 50%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        @include flex-box(center, center);
+
+        img {
+          width: auto;
+          height: auto;
+        }
+      }
+
+      &__title {
+        text-align: center;
+        @include excerpt-for-line(2);
+
+        h3 {
+          margin-bottom: .2rem;
+        }
+      }
+
+      &__content {
+        max-width: 320px;
+        text-align: center;
+        @include excerpt-for-line(4);
+      }
+    }
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(auto-fit, minmax(172px, 172px));
+
+    &__container {
+      margin: 0 0.938rem;
+    }
+  }
+}

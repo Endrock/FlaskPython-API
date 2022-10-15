@@ -1,0 +1,33 @@
+@use "../abstracts/variables";
+@use "../abstracts/breakpoints";
+@use "../abstracts/mixins";
+
+.nos-marques {
+  &__wrapper {
+    @extend %sectionSpace;
+  }
+
+  &__title {
+    width: 100%;
+    margin: 0 auto 31px;
+    text-align: center;
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__pagination {
+    @extend %sliderPagination;
+  }
+
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  .swiper-wrapper.swiper-center {
+    @include breakpoints.respond-to("tablet") {
+      justify-content: center;
+    }
+  }
+}

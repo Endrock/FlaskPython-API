@@ -1,0 +1,22 @@
+.points-message {
+  width: 100%;
+  padding: 11px 20px;
+  margin-bottom: 14px;
+  background: $color-base-primary-alpha;
+  border-radius: $border-radius;
+  @include flex-box(flex-start, center);
+
+  @include respond-to("tablet") {
+    padding: 11px 26px;
+  }
+
+  span {
+    font-size: $font-size--small;
+    font-weight: $fw-semi-regular;
+    line-height: 17.52px;
+  }
+
+  img {
+    margin-right: 7px;
+  }
+}

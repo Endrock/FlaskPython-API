@@ -1,0 +1,40 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/placeholders";
+@use "../abstracts/breakpoints";
+
+.swiper-arrows {
+  display: none !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-color: variables.$color-brand-1;
+  border-radius: 50%;
+  @include breakpoints.respond-to("tablet") {
+    display: flex !important;
+  }
+
+  & svg path {
+    fill: variables.$color-white;
+  }
+
+  &::after {
+    content: none !important;
+  }
+
+  &--prev {
+    left: -10% !important;
+  }
+
+  &--next {
+    right: -10% !important;
+  }
+
+  &.swiper-button-disabled {
+    border: solid 1px $color-base-secondary-alpha;
+    background-color: variables.$color-white;
+    opacity: 1 !important;
+    & svg path {
+      fill: variables.$color-brand-2;
+    }
+  }
+}

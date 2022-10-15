@@ -1,0 +1,78 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+#recover {
+  background-color: red;
+}
+
+.login {
+  height: calc(100vh - 120px);
+  margin: 30px auto;
+  &__title {
+    width: 100%;
+    margin-bottom: 22px;
+    line-height: 40.72px;
+    text-align: center;
+  }
+
+  &__actions {
+    @include mixins.flex-box(center, center, column);
+    width: 100%;
+    row-gap: 30px;
+    &-recovery {
+      @include mixins.flex-box(center, flex-end, column);
+      width: 100%;
+    }
+    &-buttons {
+      @include mixins.flex-box(center, center, column);
+      width: 100%;
+      row-gap: 14px;
+    }
+    
+    &-button {
+      width: 280px;
+    }
+  }
+
+  &__toggle {
+    cursor: pointer;
+  }
+}
+
+.login-form {
+  overflow: hidden;
+  transition: all ease-in-out .2s;
+  &[data-active="false"] {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  &[data-active="true"] {
+    max-height: 100vh;
+    opacity: 1;
+  }
+
+  .form__textfield {
+    margin-bottom: 0.875rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 62px;
+    text-align: center;
+  }
+}
+
+.recover-form {
+  overflow: hidden;
+  transition: all ease-in-out .2s;
+  &[data-active="false"] {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  &[data-active="true"] {
+    max-height: 100vh;
+    opacity: 1;
+  }
+}

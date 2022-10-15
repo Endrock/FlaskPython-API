@@ -1,0 +1,24 @@
+
+.grid {
+  display: grid;
+  column-gap: var(--column-gap, 10px);
+  grid-column-gap: var(--column-gap, 10px);
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  grid-row-gap: var(--row-gap, 10px);
+  grid-template-columns: var(--columns, repeat(4, minmax(180px, 195px)));
+  grid-template-rows: var(--rows, 1fr);
+  row-gap: var(--row-gap, 10px);
+  @media screen and (max-width: 749px) {
+    column-gap: var(--column-gap, 7px);
+    grid-column-gap: var(--column-gap, 7px);
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+    grid-row-gap: var(--row-gap, 7px);
+    grid-template-columns: var(--columns , repeat(2, 1fr));
+    row-gap: var(--row-gap, 7px);
+  }
+  @media screen and (max-width: 350px) {
+    grid-template-columns: var(--columns , 1fr);
+  }
+}
+
+

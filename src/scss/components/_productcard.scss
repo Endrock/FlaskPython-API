@@ -1,0 +1,178 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+.product-card {
+  @include mixins.flex-box(space-between, null, column, null);
+  max-width: 185px;
+  background-color: variables.$color-white;
+  border-radius: variables.$border-radius;
+  @include mixins.box-shadow(variables.$large-shadow, variables.$shadow-gray-035);
+
+  &--head {
+    @include mixins.flex-box(null, null, column, null);
+    text-decoration: unset;
+
+    &-images {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        @include mixins.type-position(absolute, 0, null, null, 0);
+        object-fit: cover;
+        -o-transition: .2s all ease-in-out;
+        -moz-transition: .2s all ease-in-out;
+        -webkit-transition: .2s all ease-in-out;
+        transition: .2s all ease-in-out;
+
+        &.hover-opacity:hover {
+          opacity: 0;
+        }
+      }
+    }
+
+    &-info {
+      @include mixins.flex-box(space-between, null, column, nowrap);
+      padding: 0 11px;
+      margin: 0;
+
+      @include breakpoints.respond-to('tablet') {
+        padding: 0 1rem; //15px
+      }
+    }
+
+    &-discount {
+      @include mixins.type-position(absolute, 11.5px, 10px, null, null);
+      z-index: 1;
+      background-color: variables.$color-base-primary-alpha;
+      color: variables.$bg-primary;
+    }
+
+    &-tags {
+      @include mixins.flex-box(null, null, row, wrap);
+      margin: 5px 4px 15px 0px;
+    }
+
+    &-tag {
+      margin: 0;
+      background-color: variables.$color-base-secondary-alpha;
+      color: variables.$color-light-blue;
+    }
+
+    &-discount, &-tag {
+      padding: 4px 10px;
+      border-radius: 100px;
+      font: variables.$fw-medium 0.8rem/17px variables.$font-family--general;
+      text-align: center;
+    }
+
+    &-title {
+      min-height: 2.8rem; //42px
+      margin-bottom: 8px;
+      color: variables.$color-text;
+      font: variables.$fw-medium #{variables.$font-size--h4}/1.4rem variables.$font-family--semibold;
+      @include mixins.excerpt-for-line(2);
+    }
+
+    &-price {
+      margin-bottom: 8px;
+
+      span {
+        font-size: $font-size--general !important;
+        font-weight: variables.$fw-semi-regular !important;
+      }
+
+      /* stylelint-disable-next-line selector-class-pattern */
+      span.ttc_function {
+        margin-left: 0px !important;
+      }
+
+      span.text {
+        margin: 0 3px !important;
+      }
+    }
+
+    &-review {
+      @include mixins.flex-box(flex-start, null, column, nowrap);
+
+      &-stars {
+        margin-bottom: 8px;
+      }
+
+      &-count {
+        margin-bottom: 1rem;
+        font: variables.$fw-regular 0.8rem/1.2rem variables.$font-family--general;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &--form {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 11px;
+    margin-top: auto;
+
+    &-variants {
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      margin: 0 0 16px 0;
+      font: variables.$fw-medium variables.$font-size--general variables.$font-family--general;
+
+      @include breakpoints.respond-to('tablet') {
+        margin: 0 19.5px 19.5px 19.5px;
+      }
+    }
+
+    &__title {
+      color: variables.$color-text;
+      font: variables.$fw-semi-bold 12px/17.52px variables.$font-family--general;
+      @include mixins.excerpt-for-line(1);
+    }
+  }
+
+  &--horizontal {
+    @include mixins.flex-box(space-between, center, row, nowrap);
+    max-width: 230px;
+    padding: 2px 1rem 10px 8px;
+    margin: 8px 10px;
+
+    .product-card--head {
+      margin-top: 10px;
+      margin-right: 8px;
+    }
+
+    .product-card--head-images {
+      width: 50px;
+    }
+
+    .product-card--head-tags,
+    .product-card--head-discount,
+    .product-card--head-title,
+    .product-card--head-price,
+    .product-card--head-review,
+    .product-card--head-info {
+      display: none;
+    }
+
+    .product-card--form__price {
+      margin-bottom: 11px;
+    }
+
+    .product-card--form button {
+      width: 140px;
+      padding: 6px;
+      margin: 0;
+      font-size: $font-size--small;
+    }
+  }
+}

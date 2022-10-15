@@ -1,0 +1,34 @@
+.collection {
+
+  #list-products {
+
+    .grid {
+      justify-items: center;
+
+      .product-card {
+        width: 100%;
+        max-width: 249px;
+
+        .price {
+
+          span {
+            font-size: $font-size--small !important;
+
+            @include respond-to('tablet') {
+              font-size: $font-size--general !important;
+            }
+          }
+        }
+
+        button {
+          padding: 8px 15px;
+        }
+      }
+      @include respond-to('tablet') {
+        column-gap: 15px;
+        grid-column-gap: 15px;
+        grid-template-columns: var(--columns, repeat(4, minmax(180px, 249px)));
+      }
+    }
+  }
+}

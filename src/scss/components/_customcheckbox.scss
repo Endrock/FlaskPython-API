@@ -1,0 +1,57 @@
+.custom-checkbox {
+  position: relative;
+  display: block;
+  padding-left: 2rem; //30px
+  margin-bottom: 0.6666666666666667rem;
+  cursor: pointer;
+  line-height: 1.33333333rem; //20px
+  -webkit-tap-highlight-color: transparent;
+  text-align: left;
+
+  &__checkmark {
+    display: block;
+  }
+
+  &__checkmark::before, &__checkmark::after {
+    display: block;
+    width: 1.466666666666667rem; //22px
+    height: 1.466666666666667rem; //22px
+    @include mixins.type-position(absolute, 0, null, null, 0);
+  }
+
+  &__checkmark::before {
+    border: 1px solid variables.$color-gray-light;
+    background: variables.$color-background-body;
+    border-radius: variables.$border-radius;
+    -webkit-box-shadow: 0px 4px 14px 0px variables.$shadow-black-010;
+    box-shadow: 0px 4px 14px 0px variables.$shadow-black-010;
+    content: "";
+  }
+
+  &__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &__input:checked + &__checkmark::after {
+    width: 0.3333333333333333rem; //5px
+    height: 0.53rem; //8px
+    border: solid variables.$color-white; //check color
+    border-width: 0 2px 2px 0;
+    content: "";
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    @include mixins.type-position(absolute, 0.33rem, null, null, 0.6rem);
+  }
+
+  &__input:checked + &__checkmark::before {
+    background-color: variables.$bg-primary;
+  }
+
+  &__input:hover:not(:checked) + &__checkmark::before {
+    background-color: variables.$color-gray-light;
+  }
+
+}

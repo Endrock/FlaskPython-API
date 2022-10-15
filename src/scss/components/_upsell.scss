@@ -1,0 +1,38 @@
+/* stylelint-disable selector-class-pattern */
+.cart {
+  &.side-cart {
+
+    .cart-upsell {
+
+      #upsell-js {
+        background: $color-base-secondary-alpha;
+      }
+
+      .swiper-button {
+        display: none;
+      }
+
+      .swiper-slide {
+        width: fit-content !important;
+
+        .product-card {
+
+          .price {
+
+            .ttc_function {
+              margin-left: 0;
+
+              &.text {
+                margin: 0;
+              }
+            }
+
+            & > * {
+              font-size: $font-size--small;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.flex {
+  display: flex;
+  flex-direction: var(--direction);
+  align-items: var(--align, center);
+  justify-content: var(--justify, flex-start);
+
+  & > *:not(:last-of-type) {
+    margin-right: var(--gap-flex, 20px);
+  }
+}

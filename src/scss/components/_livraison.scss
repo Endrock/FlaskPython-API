@@ -1,0 +1,129 @@
+.livraison {
+
+  &.accordions {
+    margin-bottom: 10px;
+  }
+
+  .delivery__item {
+    padding-bottom: 0;
+    border-radius: $border-radius;
+    box-shadow: 0px 4px 19px rgba(175, 195, 206, 0.35);
+
+    .accordion-item {
+      .accordion-item__button {
+        position: relative;
+        background: none;
+        box-shadow: none;
+
+        &[data-active="true"],
+        &[data-active="false"] {
+          span {
+            color: $color-text;
+            font-size: $font-size--general;
+            font-weight: $fw-lighter;
+          }
+        }
+
+        &[data-active="false"] {
+          span {
+            border: none;
+          }
+        }
+
+        & > h3,
+        & > span {
+          padding-bottom: 10px;
+          border-bottom: 1px solid $color-gray;
+          color: $color-text;
+        }
+
+        svg {
+          position: absolute;
+          top: 25px;
+          right: 20px;
+
+          path {
+            fill: $color-text;
+          }
+        }
+      }
+
+      .accordion-item__content {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.delivery {
+
+  &__item {
+
+    &-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+      }
+
+      & > p {
+        width: 80%;
+        margin-bottom: 0;
+        margin-left: 10px;
+      }
+
+      div {
+        width: 100%;
+        color: $color-text;
+        font-size: $font-size--general;
+        font-weight: $fw-lighter;
+        text-align: justify;
+      }
+    }
+
+    &-subitem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 10px;
+      font-size: $font-size--general;
+      font-weight: $fw-lighter;
+
+      & > p {
+        font-family: $font-family--semibold;
+        font-weight: $fw-regular;
+      }
+
+      .render-data {
+        display: block;
+        font-family: $font-family--general;
+      }
+    }
+  }
+
+  &__legal {
+    margin-top: 5px;
+    font-size: $font-size--small;
+    font-weight: $fw-semi-regular;
+  }
+}
+
+.delivery-main {
+  display: none;
+}

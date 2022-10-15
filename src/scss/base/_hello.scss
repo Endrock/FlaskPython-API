@@ -1,0 +1,19 @@
+@use "../abstracts/variables";
+
+.hello {
+  & > section {
+    @extend %sectionSpace;
+  }
+
+  &-welcome {
+    padding: 25px;
+    background: variables.$color-gradient-btn-1;
+    color: variables.$color-white;
+    text-align: center;
+
+    span {
+      display: block;
+      color: variables.$color-white;
+    }
+  }
+}

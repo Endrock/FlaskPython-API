@@ -1,0 +1,114 @@
+@use "variables";
+@use "breakpoints";
+@use "mixins";
+
+%h1 {
+  color: variables.$color-title;
+  font: variables.$fw-semi-bold variables.$font-size--h1
+    variables.$font-family--general;
+  line-height: 101.8%;
+  @include breakpoints.respond-to("tablet") {
+    font-size: variables.$font-size--h1-desktop !important;
+  }
+}
+
+%h2 {
+  color: variables.$color-title;
+  font: variables.$fw-medium variables.$font-size--h2
+    variables.$font-family--general;
+  line-height: 115.8%;
+  @include breakpoints.respond-to("tablet") {
+    font-size: variables.$font-size--h2-desktop !important;
+  }
+}
+
+%h3 {
+  color: variables.$color-title;
+  font: variables.$fw-medium variables.$font-size--h3
+    variables.$font-family--general;
+  line-height: 26px;
+}
+
+%h4 {
+  color: variables.$color-title;
+  font: variables.$fw-regular variables.$font-size--h4
+    variables.$font-family--general;
+  line-height: 134.7%;
+}
+
+%hn {
+  color: variables.$color-title;
+  /* stylelint-disable-next-line font-weight-notation */
+  font: normal variables.$fw-regular variables.$font-size--hn
+    variables.$font-family--general;
+}
+
+
+/*:::::::::::::::::::::
+:::: CENTER SECTION::::
+:::::::::::::::::::::::*/
+
+%centerSection {
+  margin: 0 auto;
+}
+
+
+/*:::::::::::::::::::::
+:::: SECTION SPACE ::::
+:::::::::::::::::::::::*/
+
+%sectionSpace {
+  margin-bottom: variables.$margin-section--mobile;
+  @include breakpoints.respond-to("tablet") {
+    margin-bottom: variables.$margin-section;
+  }
+}
+
+%paddingSpace {
+  padding-bottom: variables.$margin-section--mobile !important;
+  @include breakpoints.respond-to("tablet") {
+    padding-bottom: variables.$margin-section !important;
+  }
+}
+
+
+/*:::::::::::::::::::::
+:::: SCROLL CUSTOM ::::
+:::::::::::::::::::::::*/
+
+%scrollCustom {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: variables.$color-brand-1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: variables.$color-brand-2;
+    border-radius: 10px;
+  }
+}
+
+/*:::::::::::::::::::::::::
+:::: Slider pagination ::::
+:::::::::::::::::::::::::*/
+
+%sliderPagination {
+  @include mixins.flex-box(center, center, row);
+  padding: 10px 0;
+  & .swiper-pagination-bullet {
+    width: 10.86px;
+    height: 10.86px;
+    background-color: variables.$color-white;
+    box-shadow: variables.$thin-shadow variables.$shadow-black-025;
+    opacity: 1 !important;
+
+    &.swiper-pagination-bullet-active {
+      background-color: variables.$color-brand-1;
+    }
+  }
+}

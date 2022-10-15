@@ -1,0 +1,95 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+.footer-nav {
+  margin-bottom: 20px;
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+
+    text-align: left;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: variables.$color-white;
+      text-decoration: none;
+      @include mixins.excerpt-for-line(1);
+    }
+
+    @include breakpoints.respond-to('tablet') {
+      //margin-bottom: 0 !important;
+    }
+
+    .nav-item__label {
+      img {
+        display: none;
+      }
+    }
+  }
+
+  &__accordeon {
+    margin-bottom: 1rem;
+
+    @include breakpoints.respond-to('tablet') {
+      margin-bottom: 0 !important;
+    }
+
+    .accordion-item {
+      &__button {
+        justify-content: flex-start;
+        padding: 0;
+        border: none;
+        background: transparent !important;
+        box-shadow: none !important;
+        span, h3 {
+          @include mixins.excerpt-for-line(1);
+          margin-right: 7px;
+          color: variables.$color-white;
+          /* stylelint-disable-next-line font-weight-notation */
+          font: normal variables.$fw-regular variables.$font-size--general variables.$font-family--general;
+          white-space: nowrap;
+          @include mixins.flex-box(space-between, center, row);
+          @include breakpoints.respond-to('tablet') {
+            justify-content: flex-start;
+          }
+
+          svg {
+            @include breakpoints.respond-to('tablet') {
+              margin-left: 10px;
+            }
+          }
+
+          .nav-item__label {
+            img {
+              display: none;
+            }
+          }
+        }
+
+        svg {
+          path {
+            fill: #fff !important;
+          }
+        }
+      }
+
+      .accordion-item__button[data-active=true]~div.accordion-item__content {
+        margin: 11px 0 0 0px !important;
+
+        .accordions {
+          margin-bottom: 1rem !important;
+        }
+      }
+
+      .accordion-item__button[data-active=true]~div.accordion-item__content > .footer-nav__list .accordions .accordion-item__button[data-active=true]~div.accordion-item__content {
+        margin-left: 10px !important;
+      }
+    }
+  }
+}

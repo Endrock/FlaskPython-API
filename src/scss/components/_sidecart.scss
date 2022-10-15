@@ -1,0 +1,105 @@
+.cart {
+
+  &-header {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    padding-top: 10px;
+    background-color: #FFF;
+
+    &__title {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $color-gray;
+      margin-bottom: 10px;
+    }
+
+    &__discount {
+      margin-bottom: 30px;
+    }
+  }
+
+  &.side-cart {
+    .cart-items {
+      background: $color-white;
+
+      &__labels {
+        grid-template-columns: repeat(2, 1fr);
+
+        &--quantity-label {
+          display: none;
+        }
+  
+        &--prix-label {
+  
+          @include respond-to('tablet') {
+            margin-right: 0;
+          }
+        }
+      }
+
+      &__container {
+  
+        @include respond-to('tablet') {
+          padding: 0;
+          background: $color-white;
+          border-radius: $border-radius;
+          box-shadow: none;
+        }
+  
+        &--info {
+          width: 100%;
+          margin-left: 10px;
+  
+          @include respond-to('tablet') {
+            display: block;
+            grid-template-columns: none;
+          }
+        }
+      }
+
+      &__title {
+  
+        @include respond-to('tablet') {
+          @include flex-box(space-between, center);
+        }
+  
+        .item-delete {
+  
+          @include respond-to('tablet') {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .cartpage-footer {
+
+      &__content {
+        padding: 0;
+
+        @include respond-to('tablet') {
+          padding: 0;
+        }
+      }
+
+      &__btn {
+        padding: 11px 15px;
+        box-shadow: $cart-shadow $shadow-black-025;
+      }
+    }
+  }
+
+
+  &-close {
+    position: fixed;
+    z-index: 2;
+    top: 15px;
+    right: 10px;
+    padding: 0;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

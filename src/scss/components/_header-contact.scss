@@ -1,0 +1,80 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.header-contact {
+  position: fixed;
+  z-index: 99999;
+  top: 61px;
+  height: calc(100vh - 61px);
+  transition: all .5s ease;
+
+  &[data-active="false"] {
+    display: none;
+  }
+
+  &[data-active="true"] {
+    @include mixins.flex-box(flex-start, center, column);
+  }
+
+  .header-contact__detailt[data-active="true"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+
+    .header-contact__detailts-content {
+      padding: 0 24px;
+    }
+  }
+  
+  .header-contact__detailt[data-active="false"] {
+    display: none;
+  }
+
+  .header-contact__button,
+  .header-contact__button-link,
+  .header-contact__link {
+    display: block;
+    width: 245px;
+    padding: 14px;
+    border: none;
+    margin-bottom: 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .header-contact__button,
+  .header-contact__button-link {
+    background-color: variables.$color-base-primary-alpha;
+  }
+
+  .header-contact__link {
+    background-color: variables.$color-base-secondary-alpha;
+  }
+
+  .header-contact__back {
+
+    width: 100%;
+    padding: 21px 17px;
+    @include mixins.flex-box(flex-start, center, row);
+
+    .button-contact-back-js,
+    .button-back-js {
+      width: 37px;
+      height: 37px;
+      border: none;
+      margin-right: 10px;
+      background: variables.$color-brand-2;
+      border-radius: variables.$border-radius;
+      text-align: center;
+      @include mixins.flex-box(center, center, row);
+    }
+    
+  }
+
+}

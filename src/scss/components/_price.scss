@@ -1,0 +1,26 @@
+/* stylelint-disable selector-class-pattern */
+@use "../abstracts/variables";
+
+.product.price {
+  span {
+    font-family: variables.$font-family--general;
+    @extend %h4;
+  }
+
+  .ttc_function {
+    margin-left: 3px;
+
+    &.text {
+      margin: 0 5px;
+    }
+  }
+
+  & > .compare {
+    font-weight: variables.$fw-lighter;
+    text-decoration: line-through;
+  }
+
+  .regular {
+    font-weight: variables.$fw-medium;
+  }
+}

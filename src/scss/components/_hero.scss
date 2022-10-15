@@ -1,0 +1,222 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/breakpoints";
+
+.hero {
+  @include mixins.type-position(relative, null, null, null, null);
+  margin-top: 1.0625rem;
+  @extend %sectionSpace;
+
+  &-item {
+    @include mixins.type-position(relative, null, null, null, null);
+
+    &__title {
+      overflow: hidden;
+      width: 100%;
+      line-height: normal !important;
+      word-break: break-word;
+      @include mixins.excerpt-for-line(3);
+
+      /*Begin coloreur tags to show text of variants color*/
+      & pink {
+        color: variables.$color-brand-1;
+      }
+
+      & blue {
+        color: variables.$color-brand-2;
+      }
+
+      & white {
+        color: variables.$color-white;
+      }
+
+      /*Ending*/
+
+      @include breakpoints.respond-to-custom-max(360px) {
+        font-size: variables.$font-size--h2 !important;
+      }
+
+      @include breakpoints.respond-to-min-max(620px, 768px) {
+        font-size: variables.$font-size--h2 !important;
+      }
+
+      @include breakpoints.respond-to("tablet") {
+        position: relative;
+        top: auto;
+        right: auto;
+      }
+    }
+
+    &__image {
+      &--mobile {
+        display: block;
+        @include breakpoints.respond-to("tablet") {
+          display: none;
+        }
+      }
+
+      &--desktop {
+        display: none;
+        @include breakpoints.respond-to("tablet") {
+          display: block;
+        }
+      }
+    }
+
+    &__content {
+      @include mixins.type-position(absolute, 0, null, null, 45%);
+      max-width: 50%;
+      @include mixins.flex-box(center, flex-start, column);
+      height: 100%;
+
+      @include breakpoints.respond-to-custom-max(280px) {
+        transform: translateY(-40px);
+      }
+
+      @include breakpoints.respond-to("tablet") {
+        left: 48%;
+        max-width: 45%;
+        align-items: center;
+      }
+    }
+
+    &__body {
+      width: 100%;
+
+      @include breakpoints.respond-to("tablet") {
+        position: relative;
+        top: auto;
+        right: auto;
+        box-sizing: border-box;
+        padding-right: 25px;
+      }
+    }
+
+    &__description {
+      /* stylelint-disable-next-line font-weight-notation */
+      font: normal variables.$fw-semi-regular variables.$font-size--h3 variables.$font-family--general;
+      @include mixins.excerpt-for-line(4);
+
+      @include breakpoints.respond-to-custom-max(280px) {
+        margin-bottom: 0 !important;
+      }
+
+      @include breakpoints.respond-to-custom-max(320px) {
+        font-size: variables.$font-size--h4;
+      }
+
+      @include breakpoints.respond-to-min-max(620px, 768px) {
+        font-size: variables.$font-size--general;
+      }
+
+      @include breakpoints.respond-to("phone-xs") {
+        margin-bottom: 5rem;
+      }
+
+      @include breakpoints.respond-to("tablet") {
+        margin-bottom: 2.5rem;
+        font-size: 20px;
+        @include mixins.excerpt-for-line(3);
+      }
+    }
+
+    &__cta {
+      @include mixins.type-position(absolute, null, null, 67px, 50%);
+      display: block;
+      transform: translate(-50%) !important;
+      @include breakpoints.respond-to('tablet') {
+        display: none;
+      }
+
+      &--desktop {
+        display: none;
+        @include breakpoints.respond-to('tablet') {
+          display: inline-block;
+        }
+      }
+
+      @include breakpoints.respond-to("tablet") {
+        top: 50%;
+        bottom: auto;
+        left: 50%;
+        transform: translate(-5%) !important;
+      }
+
+      @include breakpoints.respond-to("tablet-l") {
+        transform: translate(-10%) !important;
+      }
+
+      @include breakpoints.respond-to-custom-max(380px) {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      @include breakpoints.respond-to-custom-max(325px) {
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+
+      @include breakpoints.respond-to-custom-max(310px) {
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+
+      @include breakpoints.respond-to-custom-max(500px) {
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+      }
+    }
+  }
+
+  &__navigation {
+    @include mixins.type-position(absolute, null, null, 20px, null);
+    z-index: 9;
+    width: 100%;
+
+    @include breakpoints.respond-to('tablet') {
+      display: none;
+    }
+
+    .hero__pagination {
+      @include mixins.flex-box(center, center, row);
+
+      .swiper-pagination-bullet {
+        border: solid 1px variables.$color-brand-1;
+        background-color: variables.$color-white;
+        opacity: 1;
+
+        &.swiper-pagination-bullet-active {
+          background-color: variables.$color-brand-1;
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    display: none !important;
+    width: 48px !important;
+    height: 48px !important;
+    background-color: variables.$color-brand-1;
+    border-radius: 50%;
+    @include breakpoints.respond-to("tablet") {
+      display: flex !important;
+    }
+
+    & svg path {
+      fill: variables.$color-white;
+    }
+
+    &::after {
+      content: none !important;
+    }
+
+    &.swiper-button-disabled {
+      border: solid 1px variables.$color-brand-2;
+      background-color: variables.$color-white;
+      opacity: 1 !important;
+      & svg path {
+        fill: variables.$color-brand-2;
+      }
+    }
+  }
+}

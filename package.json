@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.22.0",
-    "core-js": "^3.20.3",
+    "core-js": "^3.40.0",
     "moment": "^2.29.4",
     "moment-business-days": "^1.2.0",
     "moment-timezone": "^0.5.37",

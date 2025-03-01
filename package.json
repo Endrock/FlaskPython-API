@@ -47,7 +47,7 @@
     "core-js": "^3.20.3",
     "moment": "^2.29.4",
     "moment-business-days": "^1.2.0",
-    "moment-timezone": "^0.5.37",
+    "moment-timezone": "^0.5.47",
     "swiper": "^7.4.1"
   }
 }
